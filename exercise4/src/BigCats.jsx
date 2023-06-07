@@ -1,24 +1,34 @@
+import SingleCat from './SingleCat';
+import cheetahImage from './assets/cheetah.jpg';
+import cougarImage from './assets/cougar.jpg';
+import jaguarImage from './assets/jaguar.jpg';
+import leopardImage from './assets/leopard.jpg';
+import lionImage from './assets/lion.jpg';
+import snowleopardImage from './assets/snow-leopard.jpg';
+import tigerImage from './assets/tiger.jpg';
 import { useState } from 'react';
 
 function BigCats() {
-
     const cats = [
-        { id: 1, name: 'Cheetah', latinName: 'Acinonyx jubatus' },
-        { id: 2, name: 'Cougar', latinName: 'Puma concolor' },
-        { id: 3, name: 'Jaguar', latinName: 'Panthera onca' },
-        { id: 4, name: 'Leopard', latinName: 'Panthera pardus' },
-        { id: 5, name: 'Lion', latinName: 'Panthera leo' },
-        { id: 6, name: 'Snow leopard', latinName: 'Panthera uncia' },
-        { id: 7, name: 'Tiger', latinName: 'Panthera tigris' },
-    ];    
+        { id: 1, name: 'Cheetah', latinName: 'Acinonyx jubatus', image: cheetahImage },
+        { id: 2, name: 'Cougar', latinName: 'Puma concolor', image: cougarImage },
+        { id: 3, name: 'Jaguar', latinName: 'Panthera onca', image: jaguarImage },
+        { id: 4, name: 'Leopard', latinName: 'Panthera pardus', image: leopardImage },
+        { id: 5, name: 'Lion', latinName: 'Panthera leo', image: lionImage },
+        { id: 6, name: 'Snow leopard', latinName: 'Panthera uncia', image: snowleopardImage },
+        { id: 7, name: 'Tiger', latinName: 'Panthera tigris', image: tigerImage },
+      ];
 
-    const [currentCats, setCurrentCats] = useState(cats);
+      const [currentCats, setCurrentCats] = useState(cats);
 
-
-    const BigCatsList = currentCats.map(cats => (
-        <li key={cats.id} style={{ background: "lightblue" }} >
-            {cats.name} - {cats.latinName}</li>
-    ))
+      const catComponents = currentCats.map(cat => (
+        <SingleCat
+          key={cat.id}
+          name={cat.name}
+          latinName={cat.latinName}
+          image={cat.image}
+        />
+      ));
 
     const handleSortAlphabetically = () => {
         let newCats = [... currentCats];
@@ -41,13 +51,13 @@ function BigCats() {
     const handleResetFullList = () => {
         let newCats = [... cats];
         setCurrentCats(newCats);
-    }
+    };
 
 
     return (
         <>
             <div className="BigCats componentBox">
-                <ul>{BigCatsList}</ul>
+                <ul>{catComponents}</ul>
             </div>
 
             <div>
@@ -63,7 +73,7 @@ function BigCats() {
             </div>
 
             <div>
-                <button onClick={handleResetFullList}>Reset to full list</button>
+                <button onClick={handleResetFullList}>Reset</button>
             </div>
 
             
