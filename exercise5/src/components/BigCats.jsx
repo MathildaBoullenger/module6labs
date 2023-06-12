@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { AddCatForm } from './AddCatForm';
 import SingleCat from './SingleCat';
-import cheetahImage from './assets/cheetah.jpg';
-import cougarImage from './assets/cougar.jpg';
-import jaguarImage from './assets/jaguar.jpg';
-import leopardImage from './assets/leopard.jpg';
-import lionImage from './assets/lion.jpg';
-import snowleopardImage from './assets/snow-leopard.jpg';
-import tigerImage from './assets/tiger.jpg';
+import cheetahImage from '../assets/cheetah.jpg';
+import cougarImage from '../assets/cougar.jpg';
+import jaguarImage from '../assets/jaguar.jpg';
+import leopardImage from '../assets/leopard.jpg';
+import lionImage from '../assets/lion.jpg';
+import snowleopardImage from '../assets/snow-leopard.jpg';
+import tigerImage from '../assets/tiger.jpg';
 
 function BigCats() {
   const cats = [
